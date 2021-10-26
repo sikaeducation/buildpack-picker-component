@@ -1,38 +1,30 @@
 .App {
-  text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.buildpack-form {
+  background-color: hsl(268, 5%, 95%);
+  border-bottom: 1px solid hsl(268, 5%, 80%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.secondary-action {
+  background-color: hsl(268, 29%, 48%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.secondary-action:hover {
+  background-color: hsl(268, 29%, 38%);
+}
+
+.buildpack-input {
+  border: none;
+  background-color: hsla(0, 0%, 0%, 0);
+  width: 100%;
 }

@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react"
+import BuildpackForm from "./BuildpackForm"
 
 function App() {
+  const [buildpack, setBuildpack] = useState("")
+  const [buildpackList, setBuildpackList] = useState([])
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    const newBuildpack = {
+      id: Date.now(),
+      name: buildpack,
+    }
+    setBuildpackList([...buildpackList, newBuildpack])
+    setBuildpack("")
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BuildpackForm
+        handleSubmit={handleSubmit}
+        buildpack={buildpack}
+        setBuildpack={setBuildpack}
+      />
+      <ul>
+        {buildpackList.map(({id, name}) => (
+          <li key={id}>{name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
